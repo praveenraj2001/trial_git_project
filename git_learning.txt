@@ -72,7 +72,7 @@
 # git log
 * when this is used then the top item will be 
 """
-commit 3c012b25dbc6ad88ac6d94fe5b08fcc32fbcbfa2 (HEAD -> master, origin/master, 
+commit  (HEAD -> master, origin/master, 
 origin/feature/uart-driver, feature/uart-driver)
 Author: praveenraj2001 <nyalam.praveenraj@gmail.com>
 Date:   Tue Jan 6 10:04:07 2026 +0530
