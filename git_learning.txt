@@ -1,0 +1,124 @@
+# git PAT (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)
+# git PAT classic (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)
+
+# git --version
+# git config --global user.name "praveenraj2001"
+# git config --global user.email "nyalam.praveenraj@gmail.com"
+
+# git config --global --list
+
+# mkdir <>
+# git init
+* the above is used to initilize the repo Default branch (main/master) HEAD points to this currently
+
+# git add .
+* all the changes are not in the staging area (you can just select the required files instead of all <.> )
+
+# git commit -m "message"
+* commits the changes to the main
+
+# git status
+* this shows the changes and staging and commit
+
+# git log
+* views the commit history
+
+
+<Connect to the Github>
+* Create new repo 
+
+# git remote add origin https://github.com/<username>/trial_git_project.git
+* remote command link local repo to the remote Git repo and the name of that is origin
+
+# git remote -v
+* used to verify weather fetch and push happens to the remote repo
+
+# git remote set-url origin https://praveenraj2001:<PAT>@github.com/praveenraj2001/trial_git_project.git
+* connects the local repo with github online using https
+
+# git push -u origin master
+* -u This means that when you use the git push or git pull command in the future without specifying a remote or branch, Git will know to push or pull from the branch master on the origin remote.
+
+<> a .gitignore when some files or folders are add into this they are not tracked by git or github
+
+
+<Below we learn branching and mearging the branch>
+
+# git checkout -b feature/uart-driver
+* here this will create a branch feature/uart-driver and will checkout to that branch
+
+# git checkout feature/uart-driver
+* we can use this just to checkout to this branch (if this branch already exists)
+
+<modify the required files>
+
+# git add src/uart.c inc/uart.h
+
+# git commit -m "added UART driver skeleton"
+
+# git push -u origin feature/uart-driver
+
+<> create a pull request in the github
+
+<merging through cmd line>
+
+# git pull origin master 
+* if there are any new changes update the current code with that (update local with changes in remote)
+
+# git checkout master
+
+# git merge feature/uart-driver
+
+# git push -u origin master
+
+# git log
+* when this is used then the top item will be 
+"""
+commit 3c012b25dbc6ad88ac6d94fe5b08fcc32fbcbfa2 (HEAD -> master, origin/master, 
+origin/feature/uart-driver, feature/uart-driver)
+Author: praveenraj2001 <nyalam.praveenraj@gmail.com>
+Date:   Tue Jan 6 10:04:07 2026 +0530
+
+    add UART driver skeleton
+
+"""
+
+* here there are two branches master and feature/uart-driver so that means the commit is either common to both or the branch has been merged
+
+<Below we will tackle the Merge conflict>
+
+# git checkout -b feature/logging
+(make changes to main.c and commit - create a PR)
+# git add src/main.c
+# git commit -m "enabled Logging"
+# git push -u origin feature/logging
+# git checkout master
+# git merge feature/logging 
+* usually instead of merging directly create a Pull request - when working in a team
+
+# git checkout -b feature/debug
+(edit the same file just change same value in both branches and commit - create a PR) 
+# git add src/main.c
+# git commit -am "Debug is enabled"
+# git push -u origin feature/debug
+# git checkout master
+# git merge feature/debug
+
+* here you will see the below message
+"""
+Auto-merging src/main.c
+CONFLICT (content): Merge conflict in src/main.c
+Automatic merge failed; fix conflicts and then commit the result.
+"""
+
+# git checkout master
+# git merge feature/logging
+* the above merges and puts them in staging area
+
+# git merge feature/debug
+* now here you will see merge conflict
+
+<> git commit -am "message"
+* the above will stage and commit with this message while -m will only commit
+
+
