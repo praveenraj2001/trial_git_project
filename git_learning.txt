@@ -1,9 +1,7 @@
-# git PAT (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)
-# git PAT classic (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)
-
+# git PAT
 # git --version
 # git config --global user.name "praveenraj2001"
-# git config --global user.email "nyalam.praveenraj@gmail.com"
+# git config --global user.email ""
 
 # git config --global --list
 
